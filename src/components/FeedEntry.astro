@@ -12,43 +12,27 @@ const { type, title, date: frontmatterDate, description, url, image } = entry.da
 const date = frontmatterDate ?? dateFromFeedId(entry.id);
 const formattedDate = date.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
 
-const typeBadgeClass: Record<string, string> = {
-  poem: 'bg-pink text-cream',
-  sketch: 'bg-lavender text-charcoal',
-  photo: 'bg-lavender text-charcoal',
-  thought: 'bg-lavender text-charcoal',
-  link: 'bg-lavender text-charcoal',
-  fragment: 'bg-lavender text-charcoal',
-  quote: 'bg-lavender text-charcoal',
-  note: 'bg-lavender text-charcoal',
-};
-
 const isPoem = type === 'poem';
 const hasImage = (type === 'photo' || type === 'sketch') && image;
 ---
 
 <article class="py-4 border-b border-lavender/30 last:border-0">
-  <div class="flex items-center gap-2 mb-2">
-    <span class={`text-xs font-body font-medium uppercase tracking-widest px-2 py-0.5 rounded-full ${typeBadgeClass[type] ?? 'bg-lavender text-charcoal'}`}>
-      {type}
-    </span>
-    <time datetime={date.toISOString()} class="text-xs text-charcoal/50 font-body">
-      {formattedDate}
-    </time>
-  </div>
+  <time datetime={date.toISOString()} class="text-xs text-charcoal/40 font-body">
+    {formattedDate}
+  </time>
 
   {hasImage && (
     <Image
       src={image}
-      alt={title ?? `${type} entry`}
-      class="w-full mb-3 object-cover"
+      alt={title ?? 'feed entry'}
+      class="w-full mt-3 mb-3 object-cover"
       widths={[600, 900]}
       sizes="(max-width: 672px) 100vw, 672px"
     />
   )}
 
   {title && (
-    <h2 class="font-heading font-semibold text-lg text-charcoal">
+    <h2 class="font-heading font-semibold text-lg text-charcoal mt-1">
       {url
         ? <a href={url} rel="noopener noreferrer" class="hover:text-pink transition-colors">{title}</a>
         : title}
