@@ -1,0 +1,35 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import EssayCard from '../../components/EssayCard.astro';
+import { THEMES } from '../../lib/themes';
+
+export async function getStaticPaths() {
+  return THEMES.map((theme) => ({ params: { theme: theme.slug }, props: { theme } }));
+}
+
+const { theme } = Astro.props;
+const essays = await getCollection(
+  'essays',
+  (e) => e.data.status !== 'draft' && e.data.themes.includes(theme.slug)
+);
+const sorted = essays.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+---
+
+<Layout title={theme.label} description={theme.description}>
+  <div class="max-w-prose-col mx-auto px-6 py-16">
+    <a href="/writing" class="text-sm font-body text-charcoal/50 hover:text-pink transition-colors">
+      ← Writing
+    </a>
+    <h1 class="mt-4 font-heading text-headline font-bold text-charcoal">{theme.label}</h1>
+    <p class="mt-3 text-charcoal/70 font-body">{theme.description}</p>
+
+    <div class="mt-10">
+      {sorted.length === 0 ? (
+        <p class="text-charcoal/50 font-body italic">No essays yet in this theme.</p>
+      ) : (
+        sorted.map((essay) => <EssayCard essay={essay} />)
+      )}
+    </div>
+  </div>
+</Layout>

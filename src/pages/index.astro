@@ -1,0 +1,31 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../layouts/Layout.astro';
+import ActivityStream from '../components/ActivityStream.astro';
+import { dateFromFeedId } from '../lib/feedDate';
+
+const essays = await getCollection('essays', (e) => e.data.status !== 'draft');
+const feedEntries = await getCollection('feed');
+
+const stream = [
+  ...essays.map((e) => ({ type: 'essay' as const, date: e.data.date, entry: e })),
+  ...feedEntries.map((e) => ({
+    type: 'feed' as const,
+    date: e.data.date ?? dateFromFeedId(e.id),
+    entry: e,
+  })),
+].sort((a, b) => b.date.valueOf() - a.date.valueOf()).slice(0, 20);
+---
+
+<Layout title="Home">
+  <div class="max-w-prose-col mx-auto px-6 py-16">
+    <h1 class="font-heading text-display font-bold text-charcoal">Silke Van den Broeck</h1>
+    <p class="mt-3 text-lg text-charcoal/70 font-body">
+      Software engineer, AI-native thinker, writer.
+    </p>
+
+    <div class="mt-12">
+      <ActivityStream items={stream} />
+    </div>
+  </div>
+</Layout>

@@ -1,0 +1,23 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import EssayCard from './EssayCard.astro';
+import FeedEntry from './FeedEntry.astro';
+
+type StreamItem =
+  | { type: 'essay'; date: Date; entry: CollectionEntry<'essays'> }
+  | { type: 'feed'; date: Date; entry: CollectionEntry<'feed'> };
+
+interface Props {
+  items: StreamItem[];
+}
+
+const { items } = Astro.props;
+---
+
+<div class="space-y-0">
+  {items.map((item) =>
+    item.type === 'essay'
+      ? <EssayCard essay={item.entry} />
+      : <FeedEntry entry={item.entry} />
+  )}
+</div>

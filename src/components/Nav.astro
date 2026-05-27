@@ -1,0 +1,59 @@
+---
+const links = [
+  { href: '/', label: 'Home' },
+  { href: '/about', label: 'About' },
+  { href: '/writing', label: 'Writing' },
+  { href: '/feed', label: 'Feed' },
+  { href: '/cv', label: 'CV' },
+  { href: '/contact', label: 'Contact' },
+];
+
+const pathname = Astro.url.pathname;
+---
+
+<header class="border-b border-lavender/30">
+  <nav
+    class="max-w-wide mx-auto px-6 py-4 flex items-center justify-between"
+    aria-label="Main navigation"
+  >
+    <a href="/" class="font-heading font-bold text-lg text-charcoal hover:text-pink transition-colors">
+      Silke Van den Broeck
+    </a>
+
+    <details class="sm:hidden relative">
+      <summary
+        class="cursor-pointer list-none text-charcoal font-body font-medium"
+        aria-label="Toggle navigation menu"
+      >
+        Menu
+      </summary>
+      <ul class="absolute right-4 mt-2 bg-cream border border-lavender/30 rounded-sm py-2 z-10">
+        {links.map(({ href, label }) => (
+          <li>
+            <a
+              href={href}
+              aria-current={pathname === href || (href !== '/' && pathname.startsWith(href)) ? 'page' : undefined}
+              class="block px-4 py-2 font-body text-sm text-charcoal hover:text-pink transition-colors aria-[current=page]:text-pink aria-[current=page]:font-semibold"
+            >
+              {label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </details>
+
+    <ul class="hidden sm:flex gap-6 items-center">
+      {links.map(({ href, label }) => (
+        <li>
+          <a
+            href={href}
+            aria-current={pathname === href || (href !== '/' && pathname.startsWith(href)) ? 'page' : undefined}
+            class="font-body text-sm text-charcoal hover:text-pink transition-colors aria-[current=page]:text-pink aria-[current=page]:font-semibold"
+          >
+            {label}
+          </a>
+        </li>
+      ))}
+    </ul>
+  </nav>
+</header>
