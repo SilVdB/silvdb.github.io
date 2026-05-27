@@ -9,10 +9,10 @@ Built with [Astro 5](https://astro.build) + [Tailwind v4](https://tailwindcss.co
 ## How to run
 
 ```bash
-npm install
-npm run dev        # dev server at http://localhost:4321
-npm run build      # production build to dist/
-npm run check      # TypeScript + Astro diagnostics
+bun install
+bun dev            # dev server at http://localhost:4321
+bun run build      # production build to dist/
+bun run check      # TypeScript + Astro diagnostics
 ```
 
 ---
@@ -145,7 +145,7 @@ Deployment is automatic. Pushing to `main` triggers the GitHub Actions workflow 
 **Manual deploy** (if needed):
 
 ```bash
-npm run build      # outputs to dist/
+bun run build      # outputs to dist/
 ```
 
 Then upload `dist/` to any static host (Netlify, Vercel, Cloudflare Pages, etc.).
