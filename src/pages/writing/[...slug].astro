@@ -4,7 +4,7 @@ import Layout from '../../layouts/Layout.astro';
 import { THEMES } from '../../lib/themes';
 
 export async function getStaticPaths() {
-  const essays = await getCollection('essays');
+  const essays = await getCollection('essays', (e) => e.data.status !== 'draft');
   return essays.map((essay) => ({ params: { slug: essay.id }, props: { essay } }));
 }
 
