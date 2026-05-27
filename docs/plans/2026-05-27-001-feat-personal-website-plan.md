@@ -1,7 +1,7 @@
 ---
 title: "Personal Website — Full Build"
 date: 2026-05-27
-status: active
+status: completed
 origin: docs/brainstorms/2026-05-27-personal-website-requirements.md
 plan-type: feature
 ---
