@@ -1,5 +1,6 @@
 ---
 import type { CollectionEntry } from 'astro:content';
+import { THEMES } from '../lib/themes';
 
 interface Props {
   essay: CollectionEntry<'essays'>;
@@ -8,6 +9,7 @@ interface Props {
 const { essay } = Astro.props;
 const { title, date, themes, description } = essay.data;
 const formattedDate = date.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
+const validThemes = THEMES.filter((t) => themes.includes(t.slug));
 ---
 
 <article class="py-4 border-b border-lavender/30 last:border-0">
@@ -25,14 +27,14 @@ const formattedDate = date.toLocaleDateString('en-US', { year: 'numeric', month:
   {description && (
     <p class="mt-1 text-sm text-charcoal/70 font-body leading-relaxed">{description}</p>
   )}
-  {themes.length > 0 && (
+  {validThemes.length > 0 && (
     <div class="mt-2 flex flex-wrap gap-1">
-      {themes.map((theme) => (
+      {validThemes.map((theme) => (
         <a
-          href={`/writing/${theme}`}
+          href={`/writing/${theme.slug}`}
           class="text-xs font-body text-charcoal/60 hover:text-pink transition-colors"
         >
-          #{theme}
+          #{theme.label}
         </a>
       ))}
     </div>
