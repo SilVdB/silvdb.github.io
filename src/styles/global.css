@@ -1,0 +1,17 @@
+@import "tailwindcss";
+
+@theme {
+  /* Colors */
+  --color-charcoal: #2A2D2B;
+  --color-cream: #F7F4EF;
+  --color-lavender: #D8C5E8;
+  --color-pink: #FF4DA6;
+
+  /* Fonts */
+  --font-heading: 'Raleway', sans-serif;
+  --font-body: 'Open Sans', sans-serif;
+
+  /* Content widths */
+  --width-prose-col: 42rem;
+  --width-wide: 60rem;
+}
