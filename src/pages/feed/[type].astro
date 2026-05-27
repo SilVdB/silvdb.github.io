@@ -1,0 +1,55 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import FeedEntry from '../../components/FeedEntry.astro';
+import { dateFromFeedId } from '../../lib/feedDate';
+
+export async function getStaticPaths() {
+  const allEntries = await getCollection('feed');
+  const types = [...new Set(allEntries.map((e) => e.data.type))];
+  return types.map((type) => ({ params: { type } }));
+}
+
+const { type } = Astro.params;
+
+const allEntries = await getCollection('feed', (e) => e.data.type === type);
+const sorted = allEntries
+  .map((e) => ({ entry: e, date: e.data.date ?? dateFromFeedId(e.id) }))
+  .sort((a, b) => b.date.valueOf() - a.date.valueOf());
+
+const allTypes = [...new Set((await getCollection('feed')).map((e) => e.data.type))].sort();
+const currentPath = Astro.url.pathname;
+---
+
+<Layout title={`Feed — ${type}`} description={`${type} entries from the feed.`}>
+  <div class="max-w-prose-col mx-auto px-6 py-16">
+    <h1 class="font-heading text-3xl font-bold text-charcoal">Feed</h1>
+    <p class="mt-3 text-charcoal/70 font-body">A stream of poems, thoughts, and fragments.</p>
+
+    <nav class="mt-8 flex flex-wrap gap-2" aria-label="Feed type filter">
+      <a
+        href="/feed"
+        class="text-sm font-body px-3 py-1 rounded-full border border-lavender/50 hover:border-pink hover:text-pink transition-colors"
+      >
+        All
+      </a>
+      {allTypes.map((t) => (
+        <a
+          href={`/feed/${t}`}
+          aria-current={currentPath === `/feed/${t}` ? 'page' : undefined}
+          class="text-sm font-body px-3 py-1 rounded-full border border-lavender/50 hover:border-pink hover:text-pink transition-colors aria-[current=page]:bg-lavender/40 aria-[current=page]:border-lavender"
+        >
+          {t}
+        </a>
+      ))}
+    </nav>
+
+    <div class="mt-10">
+      {sorted.length === 0 ? (
+        <p class="text-charcoal/50 font-body italic">No entries of this type yet.</p>
+      ) : (
+        sorted.map(({ entry }) => <FeedEntry entry={entry} />)
+      )}
+    </div>
+  </div>
+</Layout>
