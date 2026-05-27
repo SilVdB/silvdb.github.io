@@ -1,20 +1,20 @@
 ---
 import { getCollection } from 'astro:content';
 import Layout from '../layouts/Layout.astro';
-import ActivityStream from '../components/ActivityStream.astro';
+import EssayCard from '../components/EssayCard.astro';
+import FeedEntry from '../components/FeedEntry.astro';
 import { dateFromFeedId } from '../lib/feedDate';
 
 const essays = await getCollection('essays', (e) => e.data.status !== 'draft');
-const feedEntries = await getCollection('feed');
+const latestEssays = essays
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+  .slice(0, 3);
 
-const stream = [
-  ...essays.map((e) => ({ type: 'essay' as const, date: e.data.date, entry: e })),
-  ...feedEntries.map((e) => ({
-    type: 'feed' as const,
-    date: e.data.date ?? dateFromFeedId(e.id),
-    entry: e,
-  })),
-].sort((a, b) => b.date.valueOf() - a.date.valueOf()).slice(0, 20);
+const feedEntries = await getCollection('feed');
+const latestFeed = feedEntries
+  .map((e) => ({ entry: e, date: e.data.date ?? dateFromFeedId(e.id) }))
+  .sort((a, b) => b.date.valueOf() - a.date.valueOf())
+  .slice(0, 3);
 ---
 
 <Layout title="Home">
@@ -24,8 +24,26 @@ const stream = [
       Software engineer, AI-native thinker, writer.
     </p>
 
-    <div class="mt-12">
-      <ActivityStream items={stream} />
-    </div>
+    <section class="mt-16">
+      <div class="flex items-baseline justify-between border-t border-lavender/30 pt-4 mb-2">
+        <h2 class="font-body text-xs font-medium uppercase tracking-widest text-charcoal/40">Writing</h2>
+        <a href="/writing" class="font-body text-xs text-charcoal/40 hover:text-pink transition-colors">All writing →</a>
+      </div>
+      {latestEssays.length === 0
+        ? <p class="text-charcoal/50 font-body italic py-4">No essays yet.</p>
+        : latestEssays.map((essay) => <EssayCard essay={essay} />)
+      }
+    </section>
+
+    <section class="mt-16">
+      <div class="flex items-baseline justify-between border-t border-lavender/30 pt-4 mb-2">
+        <h2 class="font-body text-xs font-medium uppercase tracking-widest text-charcoal/40">Feed</h2>
+        <a href="/feed" class="font-body text-xs text-charcoal/40 hover:text-pink transition-colors">All entries →</a>
+      </div>
+      {latestFeed.length === 0
+        ? <p class="text-charcoal/50 font-body italic py-4">No feed entries yet.</p>
+        : latestFeed.map(({ entry }) => <FeedEntry entry={entry} />)
+      }
+    </section>
   </div>
 </Layout>

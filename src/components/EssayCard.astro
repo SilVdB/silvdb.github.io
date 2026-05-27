@@ -13,15 +13,10 @@ const validThemes = THEMES.filter((t) => themes.includes(t.slug));
 ---
 
 <article class="py-4 border-b border-lavender/30 last:border-0">
-  <div class="flex items-center gap-2 mb-1">
-    <span class="text-xs font-body font-medium uppercase tracking-widest text-charcoal/40 border border-lavender/60 px-1.5 py-px">
-      essay
-    </span>
-    <time datetime={date.toISOString()} class="text-xs text-charcoal/50 font-body">
-      {formattedDate}
-    </time>
-  </div>
-  <h2 class="font-heading font-semibold text-lg text-charcoal">
+  <time datetime={date.toISOString()} class="text-xs text-charcoal/40 font-body">
+    {formattedDate}
+  </time>
+  <h2 class="font-heading font-semibold text-lg text-charcoal mt-0.5">
     <a href={`/writing/${essay.id}`} class="hover:text-pink transition-colors">{title}</a>
   </h2>
   {description && (
