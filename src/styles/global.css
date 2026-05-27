@@ -12,8 +12,8 @@
   --font-body: 'Open Sans', sans-serif;
 
   /* Content widths */
-  --width-prose-col: 42rem;
-  --width-wide: 60rem;
+  --max-width-prose-col: 42rem;
+  --max-width-wide: 60rem;
 }
 
 /* Typography scale utilities */
