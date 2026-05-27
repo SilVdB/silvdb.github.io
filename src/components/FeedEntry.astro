@@ -1,0 +1,47 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { dateFromFeedId } from '../lib/feedDate';
+
+interface Props {
+  entry: CollectionEntry<'feed'>;
+}
+
+const { entry } = Astro.props;
+const { type, title, date: frontmatterDate, description, url } = entry.data;
+const date = frontmatterDate ?? dateFromFeedId(entry.id);
+const formattedDate = date.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
+
+const typeColors: Record<string, string> = {
+  poem: 'bg-pink/10 text-pink',
+  sketch: 'bg-lavender/40 text-charcoal',
+  photo: 'bg-lavender/40 text-charcoal',
+  thought: 'bg-lavender/40 text-charcoal',
+  link: 'bg-lavender/40 text-charcoal',
+  fragment: 'bg-lavender/40 text-charcoal',
+  quote: 'bg-lavender/40 text-charcoal',
+  note: 'bg-lavender/40 text-charcoal',
+};
+---
+
+<article class="py-4 border-b border-lavender/30 last:border-0">
+  <div class="flex items-center gap-2 mb-1">
+    <span class={`text-xs font-body font-medium uppercase tracking-wide px-2 py-0.5 rounded ${typeColors[type] ?? 'bg-lavender/40 text-charcoal'}`}>
+      {type}
+    </span>
+    <time datetime={date.toISOString()} class="text-xs text-charcoal/50 font-body">
+      {formattedDate}
+    </time>
+  </div>
+  {title && (
+    <h2 class="font-heading font-semibold text-lg text-charcoal">
+      {url ? (
+        <a href={url} rel="noopener noreferrer" class="hover:text-pink transition-colors">{title}</a>
+      ) : title}
+    </h2>
+  )}
+  {description && (
+    <p class={`mt-1 text-sm text-charcoal/70 font-body leading-relaxed ${type === 'poem' ? 'leading-loose' : ''}`}>
+      {description}
+    </p>
+  )}
+</article>
