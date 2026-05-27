@@ -1,6 +1,7 @@
 ---
 import '../styles/global.css';
 import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
 
 interface Props {
   title: string;
@@ -37,10 +38,11 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
       rel="stylesheet"
     />
   </head>
-  <body class="bg-cream text-charcoal font-body min-h-screen">
+  <body class="bg-cream text-charcoal font-body min-h-screen flex flex-col">
     <Nav />
-    <main>
+    <main class="flex-1">
       <slot />
     </main>
+    <Footer />
   </body>
 </html>
