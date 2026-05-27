@@ -52,6 +52,39 @@
   }
 }
 
+/* Feed entry body content */
+@layer components {
+  .feed-body:empty {
+    display: none;
+  }
+
+  .feed-body img {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin-top: 0.75rem;
+  }
+
+  .feed-body img + img {
+    margin-top: 0.5rem;
+  }
+
+  .feed-body p {
+    margin-top: 0.75rem;
+    font-size: 0.875rem;
+    line-height: 1.7;
+    color: color-mix(in oklch, var(--color-charcoal) 70%, var(--color-cream));
+    font-family: var(--font-body);
+  }
+
+  .feed-body.poem p {
+    white-space: pre-line;
+    line-height: 1.9;
+    font-size: 1rem;
+    color: var(--color-charcoal);
+  }
+}
+
 /* Prose styles for MDX essay content */
 @layer components {
   .prose-notebook {
