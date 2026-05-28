@@ -96,8 +96,8 @@ This system explicitly rejects: SaaS landing-page mechanics (feature grids, hero
 
 **Key Characteristics:**
 - Charcoal on cool white is the canonical state; color is the exception
-- Lavender behaves like a physical highlighter: used on text for secondary emphasis, once per section, never decorative
-- Pink is a single-use emergency marker — if it appears twice on a screen, one instance is wrong
+- Lavender behaves like a physical highlighter: used on text for secondary emphasis and thin structural borders, once per section, never decorative
+- Pink is for interactive affordances (links, hovers, active states) and single-use emergency marks — if it appears as a static element more than once on a screen, one instance is wrong
 - Flat by default: no shadows, no glass, no gradients; depth through spacing and thin borders
 - Typography-led: hierarchy through weight and scale contrast, not color or decoration
 - Raleway headings carry the personality; Open Sans body carries the content
@@ -110,10 +110,10 @@ Four colors, four distinct jobs. No fifth color exists.
 - **Notebook Ink** (`#2A2D2B`, oklch ≈ 17% L, chroma 0.007, hue 152): The default state of all text, borders, icons, and structural elements. Used everywhere text appears. Never substituted with pure black.
 
 ### Secondary
-- **Lavender Highlight** (`#D8C5E8`, oklch ≈ 82% L, chroma 0.06, hue 305): Behaves like a physical highlighter applied to a notebook page. Used for inline text emphasis, active navigation states, type badges on feed entries, and thin border accents when a surface needs demarcation without weight. Never used as a background color on large surfaces.
+- **Lavender Highlight** (`#D8C5E8`, oklch ≈ 82% L, chroma 0.06, hue 305): Behaves like a physical highlighter applied to a notebook page. Used for inline text emphasis and thin structural border accents (≤1px) when a surface needs demarcation without weight. Never used as a background color on large surfaces, and never for interactive states — those belong to pink.
 
 ### Tertiary
-- **Urgent Pink** (`#FF4DA6`, oklch ≈ 67% L, chroma 0.28, hue 347): Reserved exclusively for maximum-emphasis moments: a single word that must not be missed, an active link the eye should land on first, a call-to-action with real stakes. If pink appears more than once per screen, remove one instance.
+- **Urgent Pink** (`#FF4DA6`, oklch ≈ 67% L, chroma 0.28, hue 347): The interactive and emergency color. All links, hover states, and active navigation use pink — it signals "this responds to you." Also the single-use emergency marker for static emphasis: a word that must not be missed, a call-to-action with real stakes. Pink as a hover or link color may recur freely; pink as a static decorative element is capped at one instance per screen.
 
 ### Neutral
 - **Notebook Paper** (`#F4F5F5`, oklch ≈ 96% L, chroma 0.003, hue 210): The page itself. Body background, card backgrounds, and any surface that reads as ground. Never pure white; the slight cool cast keeps it soft without warmth.
@@ -122,7 +122,9 @@ Four colors, four distinct jobs. No fifth color exists.
 
 **The Highlighter Rule.** Lavender marks passages; it does not fill regions. Use it on text spans, thin borders (≤1px), and small badge backgrounds. Never fill a section, hero, or card background with lavender — that is using the highlighter as paint.
 
-**The Emergency Rule.** Pink appears at most once per rendered screen. Its visual weight comes entirely from its rarity. A page where pink appears three times is a page where nothing is urgent.
+**The Role Split.** Lavender highlights; pink acts. Lavender marks passages of text and thin structural borders — it is the highlighter. Pink signals interaction (links, hovers, active states) and emergency emphasis — it is the pen. Neither substitutes for the other.
+
+**The Emergency Rule.** Pink as a static, non-interactive element appears at most once per rendered screen. Pink as hover or active state may appear on multiple elements — that is its job. A page where pink appears three times as static decoration is a page where nothing is urgent.
 
 **The Ink Rule.** `#2A2D2B` on `#F4F5F5` is not a choice — it is the default resting state. Any deviation from this pairing (lavender on paper, pink on paper) is a deliberate exception that must earn its presence.
 
