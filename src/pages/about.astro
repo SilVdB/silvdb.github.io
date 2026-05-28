@@ -4,7 +4,10 @@ import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout title="About" description="About Silke Van den Broeck.">
-  <article class="max-w-prose-col mx-auto px-6 py-16 font-body leading-[1.75]">
-    <AboutContent />
-  </article>
+  <div class="max-w-prose-col mx-auto px-6 py-16">
+    <h1 class="font-heading text-headline font-bold text-charcoal">About</h1>
+    <article class="mt-6 prose-notebook">
+      <AboutContent />
+    </article>
+  </div>
 </Layout>
