@@ -16,10 +16,10 @@ const { page } = Astro.props;
 const { data: entries, currentPage, lastPage, url } = page;
 ---
 
-<Layout title={currentPage === 1 ? 'Feed' : `Feed — Page ${currentPage}`} description="A stream of poems, sketches, thoughts, and fragments.">
+<Layout title={currentPage === 1 ? 'Feed' : `Feed — Page ${currentPage}`} description="Seeds, scraps, and things worth keeping.">
   <div class="max-w-prose-col mx-auto px-6 py-16">
     <h1 class="font-heading text-headline font-bold text-charcoal">Feed</h1>
-    <p class="mt-3 text-charcoal/70 font-body">A stream of poems, thoughts, and fragments.</p>
+    <p class="mt-3 text-charcoal/70 font-body">Seeds, scraps, and things worth keeping.</p>
 
     <div class="mt-10">
       {entries.length === 0 ? (
