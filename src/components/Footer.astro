@@ -1,5 +1,4 @@
 ---
-import EmailLink from './EmailLink.astro';
 const year = new Date().getFullYear();
 ---
 
@@ -9,10 +8,6 @@ const year = new Date().getFullYear();
       © {year} Silke Van den Broeck
     </p>
     <nav aria-label="Social links" class="flex items-center gap-5">
-      <EmailLink
-        label="Email"
-        class="font-body text-xs text-charcoal/40 hover:text-pink transition-colors"
-      />
       <a
         href="https://linkedin.com/in/silkevdb"
         rel="noopener noreferrer"
