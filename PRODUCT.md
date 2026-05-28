@@ -37,7 +37,7 @@ The failure mode is landing in any of these lanes by reflex. The site should be 
 
 ## Design Principles
 
-1. **Ink on paper, not pixels on screen.** Charcoal on cream is the resting state. Every color used is an intentional mark, like ink or a highlighter — not decoration.
+1. **Ink on paper, not pixels on screen.** Charcoal on paper is the resting state. Every color used is an intentional mark, like ink or a highlighter — not decoration.
 2. **Highlight like you mean it.** Lavender is a physical highlighter. One passage per spread, not every other line. Pink is reserved for the one thing on the page that must not be missed.
 3. **Earn your weight.** If an element can't justify its presence in one sentence, remove it. Sparse by default.
 4. **Precision is warmth.** Tight typography, deliberate spacing, and exact color use feel more personal than any decorative flourish.

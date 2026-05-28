@@ -3,7 +3,7 @@ name: silkevdb.github.io
 description: Personal digital notebook — sharp, honest, playful; ink on cool white with deliberate color marks.
 colors:
   charcoal: "#2A2D2B"
-  cream: "#F4F5F5"
+  paper: "#F4F5F5"
   lavender: "#D8C5E8"
   pink: "#FF4DA6"
 typography:
@@ -66,7 +66,7 @@ components:
     padding: "2px 8px"
   type-chip-poem:
     backgroundColor: "{colors.pink}"
-    textColor: "{colors.cream}"
+    textColor: "{colors.paper}"
     typography: "{typography.label}"
     rounded: "{rounded.full}"
     padding: "2px 8px"
