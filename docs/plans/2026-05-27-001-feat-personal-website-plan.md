@@ -475,7 +475,7 @@ Static page. No form, no JS. Plain link list (R23–R25):
 
 ```astro
 <ul class="contact-links">
-  <li><a href="mailto:>[email redacted]">>[email redacted]</a></li>
+  <li><a href="mailto:[email redacted]">[email redacted]</a></li>
   <li><a href="https://linkedin.com/in/silkevdb" rel="noopener noreferrer">LinkedIn</a></li>
   <li><a href="https://github.com/SilVdB" rel="noopener noreferrer">GitHub</a></li>
 </ul>
