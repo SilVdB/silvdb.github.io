@@ -73,10 +73,10 @@ Essays with `status: draft` are excluded from all listings and pages — use thi
 
 | Slug | Label |
 |------|-------|
-| `intelligence-and-ai` | Intelligence & AI |
-| `mind-and-body` | Mind & Body |
-| `ecology-and-care` | Ecology & Care |
-| `meaning-and-creation` | Meaning & Creation |
+| `intelligence-and-ai` | Intelligence and AI |
+| `mind-and-body` | Mind and body |
+| `ecology-and-nature` | Ecology and nature |
+| `meaning-and-creation` | Meaning and creation |
 
 An essay can belong to multiple themes: `themes: ["intelligence-and-ai", "mind-and-body"]`.
 
@@ -90,20 +90,16 @@ Edit `src/content/about.mdx` — plain Markdown/MDX, no frontmatter needed. Chan
 
 ### CV page
 
-Edit `src/content/cv.mdx`. The page scaffolds six sections:
+Edit `src/content/cv.mdx`. The page has these sections:
 
-- **Engineering Philosophy** — linked at `/cv#philosophy`
-- How I Work
+- **Engineering philosophy** — linked at `/cv#philosophy`
 - Experience
-- Selected Projects
-- Skills & Tooling
-- Resume (download link — place your PDF at `public/cv.pdf`)
+- Education
+- Skills
+- Certifications
+- Languages
 
-Use `<h2 id="section-name">Section Name</h2>` for anchor-linkable headings.
-
-### Contact page
-
-Edit `src/pages/contact.astro`. The link list is a plain `<ul>` — add or remove `<li>` entries as needed.
+Use `<h2 id="section-name">Section name</h2>` for anchor-linkable headings.
 
 ### Site title and metadata
 
@@ -119,7 +115,7 @@ Colors, fonts, and content widths live in `src/styles/global.css` in the `@theme
 ```css
 @theme {
   --color-charcoal: #2A2D2B;
-  --color-cream:    #F7F4EF;
+  --color-paper:    #F4F5F5;
   --color-lavender: #D8C5E8;
   --color-pink:     #FF4DA6;
   --font-heading:   'Raleway', sans-serif;
@@ -127,7 +123,7 @@ Colors, fonts, and content widths live in `src/styles/global.css` in the `@theme
 }
 ```
 
-These generate Tailwind utility classes (`bg-cream`, `text-pink`, `font-heading`, etc.).
+These generate Tailwind utility classes (`bg-paper`, `text-pink`, `font-heading`, etc.).
 
 ---
 
