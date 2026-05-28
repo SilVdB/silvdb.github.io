@@ -1,9 +1,9 @@
 ---
 name: silkevdb.github.io
-description: Personal digital notebook — sharp, honest, playful; ink on cream with deliberate color marks.
+description: Personal digital notebook — sharp, honest, playful; ink on cool white with deliberate color marks.
 colors:
   charcoal: "#2A2D2B"
-  cream: "#F7F4EF"
+  cream: "#F4F5F5"
   lavender: "#D8C5E8"
   pink: "#FF4DA6"
 typography:
@@ -88,14 +88,14 @@ components:
 
 **Creative North Star: "The Marked Page"**
 
-A page from a physical notebook: charcoal text on warm cream, almost everything in those two registers. Then a lavender highlighter line runs through a phrase — deliberate, purposeful, once per spread. Somewhere on the page, a single stroke of pink marks the one thing that must not be missed. That is the entire color vocabulary. Every other visual decision flows from this image.
+A page from a physical notebook: charcoal text on cool white, almost everything in those two registers. Then a lavender highlighter line runs through a phrase — deliberate, purposeful, once per spread. Somewhere on the page, a single stroke of pink marks the one thing that must not be missed. That is the entire color vocabulary. Every other visual decision flows from this image.
 
 The system is sparse by commitment, not by timidity. Whitespace is the default. Text earns its position. Color is never ambient or decorative — it is always a mark with a reason. "Sharp, honest, playful" means the typography is precise, the voice is direct, and the personality comes through in what's chosen and placed, not in decoration layered on top.
 
 This system explicitly rejects: SaaS landing-page mechanics (feature grids, hero metrics, gradient-glow CTAs), developer-portfolio templates (tech stack badges, GitHub contribution graphs, identical project cards), thought-leader personal-brand energy (hustle tone, optimised-for-share cadence), and wellness-blogger softness (serif on linen, passive-voice copy, motif illustration). None of these. The site looks like exactly one person made it for exactly the people who would find it interesting.
 
 **Key Characteristics:**
-- Charcoal on cream is the canonical state; color is the exception
+- Charcoal on cool white is the canonical state; color is the exception
 - Lavender behaves like a physical highlighter: used on text for secondary emphasis, once per section, never decorative
 - Pink is a single-use emergency marker — if it appears twice on a screen, one instance is wrong
 - Flat by default: no shadows, no glass, no gradients; depth through spacing and thin borders
@@ -116,7 +116,7 @@ Four colors, four distinct jobs. No fifth color exists.
 - **Urgent Pink** (`#FF4DA6`, oklch ≈ 67% L, chroma 0.28, hue 347): Reserved exclusively for maximum-emphasis moments: a single word that must not be missed, an active link the eye should land on first, a call-to-action with real stakes. If pink appears more than once per screen, remove one instance.
 
 ### Neutral
-- **Notebook Paper** (`#F7F4EF`, oklch ≈ 96% L, chroma 0.007, hue 88): The page itself. Body background, card backgrounds, and any surface that reads as ground. Never pure white; the warmth is the point.
+- **Notebook Paper** (`#F4F5F5`, oklch ≈ 96% L, chroma 0.003, hue 210): The page itself. Body background, card backgrounds, and any surface that reads as ground. Never pure white; the slight cool cast keeps it soft without warmth.
 
 ### Named Rules
 
@@ -124,7 +124,7 @@ Four colors, four distinct jobs. No fifth color exists.
 
 **The Emergency Rule.** Pink appears at most once per rendered screen. Its visual weight comes entirely from its rarity. A page where pink appears three times is a page where nothing is urgent.
 
-**The Ink Rule.** `#2A2D2B` on `#F7F4EF` is not a choice — it is the default resting state. Any deviation from this pairing (lavender on cream, pink on cream) is a deliberate exception that must earn its presence.
+**The Ink Rule.** `#2A2D2B` on `#F4F5F5` is not a choice — it is the default resting state. Any deviation from this pairing (lavender on paper, pink on paper) is a deliberate exception that must earn its presence.
 
 ## 3. Typography
 
@@ -169,10 +169,10 @@ Unadorned text links. No underlines at rest, no background pills, no border acce
 - **Transition:** `color 150ms ease-out`
 
 ### Feed Type Chips / Badges
-Small pill-shaped labels identifying feed entry types. Background is `#D8C5E8` (lavender) at full opacity for most types. `poem` type uses a `#FF4DA6` background with `#F7F4EF` text — the one type that warranted an emergency mark. Labels are uppercase, tracked, `0.75rem`. Pill shape (`border-radius: 9999px`), tight padding (`2px 8px`).
+Small pill-shaped labels identifying feed entry types. Background is `#D8C5E8` (lavender) at full opacity for most types. `poem` type uses a `#FF4DA6` background with `#F4F5F5` text — the one type that warranted an emergency mark. Labels are uppercase, tracked, `0.75rem`. Pill shape (`border-radius: 9999px`), tight padding (`2px 8px`).
 
 ### Essay Cards
-Cards are not cards. An essay card is a section of the page, separated by a thin `1px` border-bottom at lavender/30%. No background, no radius, no shadow. The title is the link; it turns `#FF4DA6` on hover. Metadata (date, theme tags) appears in label-sized text at `color-mix(in oklch, #2A2D2B 50%, #F7F4EF)` — reduced opacity charcoal.
+Cards are not cards. An essay card is a section of the page, separated by a thin `1px` border-bottom at lavender/30%. No background, no radius, no shadow. The title is the link; it turns `#FF4DA6` on hover. Metadata (date, theme tags) appears in label-sized text at `color-mix(in oklch, #2A2D2B 50%, #F4F5F5)` — reduced opacity charcoal.
 
 ### Theme Cards
 The writing index uses bordered containers (not floating cards): `1px solid` lavender at 30%, `border-radius: 4px`, `padding: 24px`. On hover, border shifts to lavender at 100% opacity. No background change, no shadow, no transform. The hover is a border deepening, not a lift.
@@ -201,7 +201,7 @@ A signature component: `<mark>`-style inline lavender background on body text fo
 - **Don't** use `border-left` or `border-right` greater than `1px` as a colored accent stripe. This is an absolute ban. If a callout needs marking, use a full border or a background tint.
 - **Don't** reach for SaaS-landing-page mechanics: feature-grid layouts, hero metrics with big numbers, gradient-glow CTAs, "→ Get started" buttons. This site has no conversion funnel.
 - **Don't** build a developer portfolio: no tech stack badge rows, no GitHub activity graphs, no side-by-side project cards with icons and three bullets each.
-- **Don't** drift into wellness-blogger softness: no serif-on-linen affect, no leaf or botanical motifs, no passive-voice copy, no soft beiges beyond `#F7F4EF`.
+- **Don't** drift into wellness-blogger softness: no serif-on-linen affect, no leaf or botanical motifs, no passive-voice copy, no soft beiges beyond `#F4F5F5`.
 - **Don't** use thought-leader personal-brand energy: no hustle tone, no "let's connect" CTAs, no optimised-for-LinkedIn phrasing.
 - **Don't** set body paragraphs in Raleway. It is a heading font only.
 - **Don't** use more than four colors. The palette is closed.
