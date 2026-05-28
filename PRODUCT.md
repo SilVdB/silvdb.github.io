@@ -4,6 +4,12 @@
 
 brand
 
+## Primary Entry Point
+
+Most visitors arrive from LinkedIn — they read a long-form post and clicked through out of curiosity. They're not searching for Silke; they just encountered her thinking and want to understand the person behind it.
+
+This frames the homepage's job: make that visitor feel like they landed in the right place and want to keep reading. The About page is the most important destination after the homepage. The writing section is the payoff.
+
 ## Users
 
 Three visitor types, all equally served:
