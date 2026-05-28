@@ -1,22 +1,22 @@
 export const THEMES = [
   {
     slug: 'intelligence-and-ai',
-    label: 'Intelligence & AI',
+    label: 'Intelligence and AI',
     description: 'Cognition, agents, software engineering, human vs machine thinking, attention, distributed intelligence.',
   },
   {
     slug: 'mind-and-body',
-    label: 'Mind & Body',
+    label: 'Mind and body',
     description: 'Nervous systems, trauma, embodiment, meditation, regulation.',
   },
   {
-    slug: 'ecology-and-care',
-    label: 'Ecology & Care',
+    slug: 'ecology-and-nature',
+    label: 'Ecology and nature',
     description: 'Gardening, herbalism, slowness, rituals, relationship with nature.',
   },
   {
     slug: 'meaning-and-creation',
-    label: 'Meaning & Creation',
+    label: 'Meaning and creation',
     description: 'Philosophy, creativity, identity, art.',
   },
 ] as const;

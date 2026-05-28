@@ -188,6 +188,7 @@ A signature component: `<mark>`-style inline lavender background on body text fo
 ## 6. Do's and Don'ts
 
 ### Do:
+- **Do** use sentence case for all titles, headings, navigation labels, and theme names. Only the first word and proper nouns/acronyms are capitalised. "Ecology and nature", not "Ecology And Nature". "Intelligence and AI" is correct because AI is an acronym.
 - **Do** set body text in Open Sans at `1rem / 1.75` line-height with a 65–75ch max line length. The generous leading is the notebook register.
 - **Do** use lavender (`#D8C5E8`) as a highlight on text spans and `1px` borders. Those are its two jobs.
 - **Do** reserve pink (`#FF4DA6`) for the one highest-emphasis element per screen. Nav active state counts as that use.
