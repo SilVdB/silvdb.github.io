@@ -35,13 +35,13 @@ Your content here.
 
 **Optional fields:**
 
-| Field | Use |
-|-------|-----|
-| `title` | Shown as a heading; for `link` type, becomes the external link text |
-| `date` | Overrides the filename date (`YYYY-MM-DD`) |
-| `description` | Body text shown on feed cards |
-| `url` | Required for `link` type — the external URL |
-| `image` | For `photo` / `sketch` — displayed full-width |
+| Field         | Use                                                                 |
+| ------------- | ------------------------------------------------------------------- |
+| `title`       | Shown as a heading; for `link` type, becomes the external link text |
+| `date`        | Overrides the filename date (`YYYY-MM-DD`)                          |
+| `description` | Body text shown on feed cards                                       |
+| `url`         | Required for `link` type — the external URL                         |
+| `image`       | For `photo` / `sketch` — displayed full-width                       |
 
 Adding a new `type` value automatically creates a `/feed/[type]` filter page on the next build.
 
@@ -71,11 +71,11 @@ Essays with `status: draft` are excluded from all listings and pages — use thi
 
 **Available theme slugs:**
 
-| Slug | Label |
-|------|-------|
-| `intelligence-and-ai` | Intelligence and AI |
-| `mind-and-body` | Mind and body |
-| `ecology-and-nature` | Ecology and nature |
+| Slug                   | Label                |
+| ---------------------- | -------------------- |
+| `intelligence-and-ai`  | Intelligence and AI  |
+| `mind-and-body`        | Mind and body        |
+| `ecology-and-nature`   | Ecology and nature   |
 | `meaning-and-creation` | Meaning and creation |
 
 An essay can belong to multiple themes: `themes: ["intelligence-and-ai", "mind-and-body"]`.
@@ -92,7 +92,6 @@ Edit `src/content/about.mdx` — plain Markdown/MDX, no frontmatter needed. Chan
 
 Edit `src/content/cv.mdx`. The page has these sections:
 
-- **Engineering philosophy** — linked at `/cv#philosophy`
 - Experience
 - Education
 - Skills
@@ -114,12 +113,12 @@ Colors, fonts, and content widths live in `src/styles/global.css` in the `@theme
 
 ```css
 @theme {
-  --color-charcoal: #2A2D2B;
-  --color-paper:    #F4F5F5;
-  --color-lavender: #D8C5E8;
-  --color-pink:     #FF4DA6;
-  --font-heading:   'Raleway', sans-serif;
-  --font-body:      'Open Sans', sans-serif;
+  --color-charcoal: #2a2d2b;
+  --color-paper: #f4f5f5;
+  --color-lavender: #d8c5e8;
+  --color-pink: #ff4da6;
+  --font-heading: "Raleway", sans-serif;
+  --font-body: "Open Sans", sans-serif;
 }
 ```
 
@@ -132,6 +131,7 @@ These generate Tailwind utility classes (`bg-paper`, `text-pink`, `font-heading`
 Deployment is automatic. Pushing to `main` triggers the GitHub Actions workflow at `.github/workflows/deploy.yml`, which builds the site and publishes it to GitHub Pages.
 
 **Steps for the first deploy:**
+
 1. Go to the repo → Settings → Pages
 2. Set Source to **GitHub Actions**
 3. Push to `main` — the workflow runs and the site goes live at `https://silkevdb.github.io`
