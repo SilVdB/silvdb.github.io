@@ -1,14 +1,14 @@
 ---
 import { getCollection } from 'astro:content';
 import Layout from '../layouts/Layout.astro';
-import EssayCard from '../components/EssayCard.astro';
+// import EssayCard from '../components/EssayCard.astro';  // re-enable with writing section
 import FeedEntry from '../components/FeedEntry.astro';
 import { dateFromFeedId } from '../lib/feedDate';
 
-const essays = await getCollection('essays', (e) => e.data.status !== 'draft');
-const latestEssays = essays
-  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
-  .slice(0, 3);
+// const essays = await getCollection('essays', (e) => e.data.status !== 'draft');  // re-enable with writing section
+// const latestEssays = essays
+//   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+//   .slice(0, 3);
 
 const feedEntries = await getCollection('feed');
 const latestFeed = feedEntries
@@ -24,6 +24,7 @@ const latestFeed = feedEntries
       Thinking about <mark>software, nervous systems and herbalism</mark>, and sometimes writing about it.
     </p>
 
+    {/* Writing section — re-enable when first essay is ready
     <section class="mt-16">
       <div class="flex items-baseline justify-between mb-2">
         <h2 class="font-body text-xs font-medium uppercase tracking-widest text-charcoal/40">Writing</h2>
@@ -34,6 +35,7 @@ const latestFeed = feedEntries
         : latestEssays.map((essay) => <EssayCard essay={essay} />)
       }
     </section>
+    */}
 
     <section class="mt-16">
       <div class="flex items-baseline justify-between mb-2">
